@@ -10,6 +10,7 @@ namespace BAPAss4
     {
         Dictionary<String, int> inventory = new Dictionary<String, int>();
         Dictionary<String, int> cart = new Dictionary<String, int>();
+        // Dictionary using the SKU as the key and the Product as the value
         Dictionary<String, Product> products = new Dictionary<string, Product>();
 
         String _cashier;
@@ -21,7 +22,7 @@ namespace BAPAss4
             _cashier = username;
 
 
-
+            // File with products stored on a csv
             String path = "products.csv";
             if (File.Exists(path))
             {
@@ -31,14 +32,17 @@ namespace BAPAss4
                     while ((line = sr.ReadLine()) != null)
                     {
                         String[] data = line.Split(',');
+                        // New Product object is created consisting of SKU, Name, and Price
                         Product product = new Product(data[0], data[1], Decimal.Parse(data[2]));
+                        // Adding new Product object to dictionary
                         products.Add(product.Sku, product);
+                        // Adding stock level of products to Dictionary
                         inventory.Add(product.Sku, Int32.Parse(data[3]));
                     }
                 }
             }
 
-
+            // Binding data to DataGridView
             foreach (Product product in products.Values)
             {
                 productBindingSource.Add(product);
@@ -103,7 +107,7 @@ namespace BAPAss4
                     // Font must be monospaced for text to line up correctly
                     String lineItem = $"{p.Name} {String.Concat(Enumerable.Repeat(".", 37 - p.Name.Length - p.Price.ToString().Length))} €{p.Price}";
 
-
+                    // For each item in cart, increment the total
                     for (int i = 0; i < cart[s]; i++)
                     {
                         total += p.Price;
@@ -138,14 +142,19 @@ namespace BAPAss4
         {
             if (cartListBox.Items.Count > 0)
             {
+                // Folder in which receipts are stored
                 String path = "receipts";
+
+                // Gets curent DateTime
                 DateTime date = DateTime.Now;
                 if (!Directory.Exists(path))
                 {
                     Directory.CreateDirectory(path);
                 }
+                // Create files within the path, named year-month-day_hour-minute-second.txt
                 using (StreamWriter file = new StreamWriter($"{path}\\{date.ToString("yyyy-MM-dd_HH-mm-ss")}.txt"))
                 {
+                    // Adding information to start of receipts using StreamWriter
                     file.WriteLine(String.Concat(Enumerable.Repeat(" ", 40 - date.ToLongDateString().Length)) + date.ToLongDateString());
                     file.WriteLine($"Cashier: {_cashier}");
                     file.WriteLine($"ID: {Guid.NewGuid()}\n");
@@ -155,6 +164,7 @@ namespace BAPAss4
                     }
                 }
 
+                // Updating products.csv from ArrayList in memory as items have been sold
                 using (StreamWriter file = new StreamWriter("products.csv"))
                 {
 
@@ -164,14 +174,20 @@ namespace BAPAss4
                     }
                 }
 
+                // Opens the newly created receipt
                 ViewInvoice viewInvoice = new ViewInvoice($"{path}\\{date.ToString("yyyy-MM-dd_HH-mm-ss")}.txt");
                 cartListBox.Items.Clear();
                 cart.Clear();
                 viewInvoice.Show();
             }
+            else
+            {
+                toolTip1.SetToolTip(this.InvoiceButton, "Add item to cart to continue.");
+            }
             
 
         }
+
 
         private void TransactionButton_Click(object sender, EventArgs e)
         {
@@ -179,14 +195,16 @@ namespace BAPAss4
             previousTransactions.Show();
         }
 
-        private void SummaryButton_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
 
-        private void ClearButton_Click(object sender, EventArgs e)
+        private void LogoutButton_Click(object sender, EventArgs e)
         {
-
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+            this.Hide();
         }
     }
 

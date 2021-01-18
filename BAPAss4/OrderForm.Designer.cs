@@ -29,16 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderForm));
             this.ProductGridView = new System.Windows.Forms.DataGridView();
+            this.Add = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.StockLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cartListBox = new System.Windows.Forms.ListBox();
             this.InvoiceButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.TransactionButton = new System.Windows.Forms.Button();
-            this.ClearButton = new System.Windows.Forms.Button();
-            this.SummaryButton = new System.Windows.Forms.Button();
-            this.Add = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.StockLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LogoutButton = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.skuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,70 +69,6 @@
             this.ProductGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProductGridView_CellContentClick);
             this.ProductGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.ProductGridView_CellFormatting);
             // 
-            // cartListBox
-            // 
-            this.cartListBox.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cartListBox.FormattingEnabled = true;
-            this.cartListBox.ItemHeight = 14;
-            this.cartListBox.Location = new System.Drawing.Point(583, 12);
-            this.cartListBox.Name = "cartListBox";
-            this.cartListBox.Size = new System.Drawing.Size(310, 256);
-            this.cartListBox.TabIndex = 4;
-            // 
-            // InvoiceButton
-            // 
-            this.InvoiceButton.Location = new System.Drawing.Point(7, 19);
-            this.InvoiceButton.Name = "InvoiceButton";
-            this.InvoiceButton.Size = new System.Drawing.Size(85, 40);
-            this.InvoiceButton.TabIndex = 6;
-            this.InvoiceButton.Text = "&Generate Invoice";
-            this.InvoiceButton.UseVisualStyleBackColor = true;
-            this.InvoiceButton.Click += new System.EventHandler(this.InvoiceButton_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox1.Controls.Add(this.TransactionButton);
-            this.groupBox1.Controls.Add(this.ClearButton);
-            this.groupBox1.Controls.Add(this.SummaryButton);
-            this.groupBox1.Controls.Add(this.InvoiceButton);
-            this.groupBox1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.groupBox1.Location = new System.Drawing.Point(583, 274);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(310, 118);
-            this.groupBox1.TabIndex = 7;
-            this.groupBox1.TabStop = false;
-            // 
-            // TransactionButton
-            // 
-            this.TransactionButton.Location = new System.Drawing.Point(98, 20);
-            this.TransactionButton.Name = "TransactionButton";
-            this.TransactionButton.Size = new System.Drawing.Size(85, 39);
-            this.TransactionButton.TabIndex = 9;
-            this.TransactionButton.Text = "&Previous Transactions";
-            this.TransactionButton.UseVisualStyleBackColor = true;
-            this.TransactionButton.Click += new System.EventHandler(this.TransactionButton_Click);
-            // 
-            // ClearButton
-            // 
-            this.ClearButton.Location = new System.Drawing.Point(7, 65);
-            this.ClearButton.Name = "ClearButton";
-            this.ClearButton.Size = new System.Drawing.Size(85, 23);
-            this.ClearButton.TabIndex = 8;
-            this.ClearButton.Text = "&Clear";
-            this.ClearButton.UseVisualStyleBackColor = true;
-            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
-            // 
-            // SummaryButton
-            // 
-            this.SummaryButton.Location = new System.Drawing.Point(98, 65);
-            this.SummaryButton.Name = "SummaryButton";
-            this.SummaryButton.Size = new System.Drawing.Size(85, 23);
-            this.SummaryButton.TabIndex = 7;
-            this.SummaryButton.Text = "&Summary";
-            this.SummaryButton.UseVisualStyleBackColor = true;
-            this.SummaryButton.Click += new System.EventHandler(this.SummaryButton_Click);
-            // 
             // Add
             // 
             this.Add.HeaderText = "";
@@ -154,6 +92,75 @@
             this.StockLevel.HeaderText = "Stock Level";
             this.StockLevel.Name = "StockLevel";
             this.StockLevel.ReadOnly = true;
+            // 
+            // cartListBox
+            // 
+            this.cartListBox.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cartListBox.FormattingEnabled = true;
+            this.cartListBox.ItemHeight = 14;
+            this.cartListBox.Location = new System.Drawing.Point(583, 12);
+            this.cartListBox.Name = "cartListBox";
+            this.cartListBox.Size = new System.Drawing.Size(310, 284);
+            this.cartListBox.TabIndex = 4;
+            // 
+            // InvoiceButton
+            // 
+            this.InvoiceButton.Location = new System.Drawing.Point(6, 19);
+            this.InvoiceButton.Name = "InvoiceButton";
+            this.InvoiceButton.Size = new System.Drawing.Size(85, 52);
+            this.InvoiceButton.TabIndex = 6;
+            this.InvoiceButton.Text = "&Purchase";
+            this.InvoiceButton.UseVisualStyleBackColor = true;
+            this.InvoiceButton.Click += new System.EventHandler(this.InvoiceButton_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.TransactionButton);
+            this.groupBox1.Controls.Add(this.LogoutButton);
+            this.groupBox1.Controls.Add(this.InvoiceButton);
+            this.groupBox1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.groupBox1.Location = new System.Drawing.Point(583, 299);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(310, 93);
+            this.groupBox1.TabIndex = 7;
+            this.groupBox1.TabStop = false;
+            // 
+            // TransactionButton
+            // 
+            this.TransactionButton.Location = new System.Drawing.Point(97, 19);
+            this.TransactionButton.Name = "TransactionButton";
+            this.TransactionButton.Size = new System.Drawing.Size(85, 52);
+            this.TransactionButton.TabIndex = 9;
+            this.TransactionButton.Text = "&Previous Transactions";
+            this.TransactionButton.UseVisualStyleBackColor = true;
+            this.TransactionButton.Click += new System.EventHandler(this.TransactionButton_Click);
+            // 
+            // LogoutButton
+            // 
+            this.LogoutButton.Location = new System.Drawing.Point(188, 19);
+            this.LogoutButton.Name = "LogoutButton";
+            this.LogoutButton.Size = new System.Drawing.Size(116, 23);
+            this.LogoutButton.TabIndex = 8;
+            this.LogoutButton.Text = "&Logout";
+            this.LogoutButton.UseVisualStyleBackColor = true;
+            this.LogoutButton.Click += new System.EventHandler(this.LogoutButton_Click);
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.IsBalloon = true;
+            this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(188, 48);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(116, 23);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Exit";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // skuDataGridViewTextBoxColumn
             // 
@@ -188,8 +195,9 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cartListBox);
             this.Controls.Add(this.ProductGridView);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OrderForm";
-            this.Text = "Form2";
+            this.Text = "Order Form";
             ((System.ComponentModel.ISupportInitialize)(this.ProductGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
@@ -203,8 +211,7 @@
         private System.Windows.Forms.ListBox cartListBox;
         private System.Windows.Forms.Button InvoiceButton;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button ClearButton;
-        private System.Windows.Forms.Button SummaryButton;
+        private System.Windows.Forms.Button LogoutButton;
         private System.Windows.Forms.Button TransactionButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn skuDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
@@ -212,5 +219,7 @@
         private System.Windows.Forms.DataGridViewButtonColumn Add;
         private System.Windows.Forms.DataGridViewButtonColumn Remove;
         private System.Windows.Forms.DataGridViewTextBoxColumn StockLevel;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button button1;
     }
 }

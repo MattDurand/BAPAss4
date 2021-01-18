@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewInvoice));
             this.cartListBox = new System.Windows.Forms.ListBox();
             this.CloseButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -71,8 +72,9 @@
             this.ClientSize = new System.Drawing.Size(335, 450);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cartListBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ViewInvoice";
-            this.Text = "ViewInvoice";
+            this.Text = "Transaction Invoice";
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 

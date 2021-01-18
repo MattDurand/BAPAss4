@@ -14,6 +14,7 @@ namespace BAPAss4
             InitializeComponent();
             foreach (String path in Directory.GetFiles("receipts"))
             {
+                // Create Array list of all transactions
                 ArrayList transaction = new ArrayList();
                 using (StreamReader file = new StreamReader(path))
                 {
@@ -76,6 +77,11 @@ namespace BAPAss4
                 });
                 }
             }
+        }
+
+        private void InvoiceButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 

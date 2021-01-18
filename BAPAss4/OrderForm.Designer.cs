@@ -31,23 +31,24 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderForm));
             this.ProductGridView = new System.Windows.Forms.DataGridView();
-            this.Add = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.StockLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cartListBox = new System.Windows.Forms.ListBox();
-            this.InvoiceButton = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.TransactionButton = new System.Windows.Forms.Button();
-            this.LogoutButton = new System.Windows.Forms.Button();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.skuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Add = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.StockLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cartListBox = new System.Windows.Forms.ListBox();
+            this.InvoiceButton = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.SummaryButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.TransactionButton = new System.Windows.Forms.Button();
+            this.LogoutButton = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ProductGridView)).BeginInit();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ProductGridView
@@ -68,6 +69,27 @@
             this.ProductGridView.TabIndex = 1;
             this.ProductGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProductGridView_CellContentClick);
             this.ProductGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.ProductGridView_CellFormatting);
+            // 
+            // skuDataGridViewTextBoxColumn
+            // 
+            this.skuDataGridViewTextBoxColumn.DataPropertyName = "Sku";
+            this.skuDataGridViewTextBoxColumn.HeaderText = "Sku";
+            this.skuDataGridViewTextBoxColumn.Name = "skuDataGridViewTextBoxColumn";
+            this.skuDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // Add
             // 
@@ -93,6 +115,10 @@
             this.StockLevel.Name = "StockLevel";
             this.StockLevel.ReadOnly = true;
             // 
+            // productBindingSource
+            // 
+            this.productBindingSource.DataSource = typeof(BAPAss4.Product);
+            // 
             // cartListBox
             // 
             this.cartListBox.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -116,6 +142,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox1.Controls.Add(this.SummaryButton);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.TransactionButton);
             this.groupBox1.Controls.Add(this.LogoutButton);
@@ -127,13 +154,33 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             // 
+            // SummaryButton
+            // 
+            this.SummaryButton.Location = new System.Drawing.Point(97, 48);
+            this.SummaryButton.Name = "SummaryButton";
+            this.SummaryButton.Size = new System.Drawing.Size(85, 23);
+            this.SummaryButton.TabIndex = 11;
+            this.SummaryButton.Text = "S&ummary";
+            this.SummaryButton.UseVisualStyleBackColor = true;
+            this.SummaryButton.Click += new System.EventHandler(this.SummaryButton_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(188, 48);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(116, 23);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "&Exit";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // TransactionButton
             // 
             this.TransactionButton.Location = new System.Drawing.Point(97, 19);
             this.TransactionButton.Name = "TransactionButton";
-            this.TransactionButton.Size = new System.Drawing.Size(85, 52);
+            this.TransactionButton.Size = new System.Drawing.Size(85, 23);
             this.TransactionButton.TabIndex = 9;
-            this.TransactionButton.Text = "&Previous Transactions";
+            this.TransactionButton.Text = "&Search";
             this.TransactionButton.UseVisualStyleBackColor = true;
             this.TransactionButton.Click += new System.EventHandler(this.TransactionButton_Click);
             // 
@@ -152,41 +199,6 @@
             this.toolTip1.IsBalloon = true;
             this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(188, 48);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Exit";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // skuDataGridViewTextBoxColumn
-            // 
-            this.skuDataGridViewTextBoxColumn.DataPropertyName = "Sku";
-            this.skuDataGridViewTextBoxColumn.HeaderText = "Sku";
-            this.skuDataGridViewTextBoxColumn.Name = "skuDataGridViewTextBoxColumn";
-            this.skuDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // productBindingSource
-            // 
-            this.productBindingSource.DataSource = typeof(BAPAss4.Product);
-            // 
             // OrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -199,8 +211,8 @@
             this.Name = "OrderForm";
             this.Text = "Order Form";
             ((System.ComponentModel.ISupportInitialize)(this.ProductGridView)).EndInit();
-            this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -221,5 +233,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn StockLevel;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button SummaryButton;
     }
 }

@@ -10,7 +10,7 @@ namespace BAPAss4
         {
             InitializeComponent();
 
-            
+
             if (File.Exists(filename))
             {
                 using (StreamReader file = new StreamReader(filename))
@@ -22,10 +22,10 @@ namespace BAPAss4
                     }
                 }
             }
-            else {
+            else
+            {
                 cartListBox.Items.Add("Invoice not found");
             }
-
         }
 
         private void CloseButton_Click(object sender, EventArgs e)

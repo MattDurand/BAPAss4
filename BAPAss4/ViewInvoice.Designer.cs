@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewInvoice));
             this.cartListBox = new System.Windows.Forms.ListBox();
             this.CloseButton = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox1.SuspendLayout();
+            this.GroupBox = new System.Windows.Forms.GroupBox();
+            this.GroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // cartListBox
@@ -47,35 +47,36 @@
             // 
             // CloseButton
             // 
-            this.CloseButton.Location = new System.Drawing.Point(6, 19);
+            this.CloseButton.Location = new System.Drawing.Point(230, 21);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(75, 23);
             this.CloseButton.TabIndex = 6;
-            this.CloseButton.Text = "&Close";
+            this.CloseButton.Text = "&Return";
             this.CloseButton.UseVisualStyleBackColor = true;
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
-            // groupBox1
+            // GroupBox
             // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox1.Controls.Add(this.CloseButton);
-            this.groupBox1.Location = new System.Drawing.Point(12, 386);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(310, 52);
-            this.groupBox1.TabIndex = 7;
-            this.groupBox1.TabStop = false;
+            this.GroupBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.GroupBox.Controls.Add(this.CloseButton);
+            this.GroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GroupBox.Location = new System.Drawing.Point(12, 386);
+            this.GroupBox.Name = "GroupBox";
+            this.GroupBox.Size = new System.Drawing.Size(311, 61);
+            this.GroupBox.TabIndex = 22;
+            this.GroupBox.TabStop = false;
             // 
             // ViewInvoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(335, 450);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(335, 456);
+            this.Controls.Add(this.GroupBox);
             this.Controls.Add(this.cartListBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ViewInvoice";
             this.Text = "Transaction Invoice";
-            this.groupBox1.ResumeLayout(false);
+            this.GroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -84,6 +85,6 @@
 
         private System.Windows.Forms.ListBox cartListBox;
         private System.Windows.Forms.Button CloseButton;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox GroupBox;
     }
 }

@@ -1,0 +1,13 @@
+C:\Users\mattd\source\repos\BAPAss4\BAPAss4\bin\Debug\BAPAss4.exe.config
+C:\Users\mattd\source\repos\BAPAss4\BAPAss4\bin\Debug\BAPAss4.exe
+C:\Users\mattd\source\repos\BAPAss4\BAPAss4\bin\Debug\BAPAss4.pdb
+C:\Users\mattd\source\repos\BAPAss4\BAPAss4\obj\Debug\BAPAss4.csprojAssemblyReference.cache
+C:\Users\mattd\source\repos\BAPAss4\BAPAss4\obj\Debug\BAPAss4.Properties.Resources.resources
+C:\Users\mattd\source\repos\BAPAss4\BAPAss4\obj\Debug\BAPAss4.csproj.GenerateResource.cache
+C:\Users\mattd\source\repos\BAPAss4\BAPAss4\obj\Debug\BAPAss4.csproj.CoreCompileInputs.cache
+C:\Users\mattd\source\repos\BAPAss4\BAPAss4\obj\Debug\BAPAss4.exe
+C:\Users\mattd\source\repos\BAPAss4\BAPAss4\obj\Debug\BAPAss4.pdb
+C:\Users\mattd\source\repos\BAPAss4\BAPAss4\obj\Debug\BAPAss4.LoginForm.resources
+C:\Users\mattd\source\repos\BAPAss4\BAPAss4\obj\Debug\BAPAss4.OrderForm.resources
+C:\Users\mattd\source\repos\BAPAss4\BAPAss4\obj\Debug\BAPAss4.ViewInvoice.resources
+C:\Users\mattd\source\repos\BAPAss4\BAPAss4\obj\Debug\BAPAss4.PreviousTransactions.resources

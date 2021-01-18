@@ -42,7 +42,8 @@ namespace BAPAss4
                 }
                 catch (Exception e)
                 {
-                    // Unable to parse
+                    string message = "No item matching search terms";  
+                    MessageBox.Show(message);
                 }
 
             }
@@ -81,7 +82,7 @@ namespace BAPAss4
 
         private void InvoiceButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 

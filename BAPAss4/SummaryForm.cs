@@ -23,7 +23,7 @@ namespace BAPAss4
             // Populates total transactions
             TotalTransactionsTextBox.Text = transactionCount.ToString();
 
-            // Getting total of each receipt total
+            // Getting total revenue from receipt total
             foreach (String s in Directory.GetFiles("receipts"))
             {
                 ArrayList transaction = new ArrayList();
@@ -50,8 +50,9 @@ namespace BAPAss4
                 }
                 catch (Exception e)
                 {
-                    // Unable to parse
-                    //todo - make error dialog - hahah gay
+                    string message = "Unable to read files";  
+                    MessageBox.Show(message);
+                    
                 }
             }
 

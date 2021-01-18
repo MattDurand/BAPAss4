@@ -212,6 +212,36 @@ namespace BAPAss4
             SummaryForm summaryForm = new SummaryForm();
             summaryForm.Show();
         }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            ProductGridView.Rows.Clear();
+            foreach (string sku in products.Keys)
+            {
+                if (SearchTextBox.Text.Contains(sku))
+                {
+                    productBindingSource.Add(products[sku]);
+                }
+                else
+                {
+                    string message = "No item matching that SKU was found";  
+                    MessageBox.Show(message);
+                    button2_Click(null, null);
+                    break;
+                }
+               
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+        // If search sku is null, return all entries
+            foreach (Product product in products.Values)
+            {
+                // Binding data to DataGridView
+                productBindingSource.Add(product);
+            }
+        }
     }
 
 
